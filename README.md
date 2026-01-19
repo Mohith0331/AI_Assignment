@@ -24,11 +24,12 @@ Both tasks are fully runnable locally on a standard Windows or Linux laptop with
 
 AI_Assignment/
 │
-├── task1_name_matching/
-│   ├── name_matcher.py
-│   └── names.py
+├── Task_1/
+│   ├── name_match.py
+│   ├── names.py
+│   └── requirements.txt
 │
-├── task2_recipe_chatbot/
+├── Task_2/
 │   ├── app.py
 │   ├── model.py
 │   ├── recipe_data.py
@@ -55,29 +56,35 @@ Windows: venv\Scripts\activate
 Linux/macOS: source venv/bin/activate
 
 Install dependencies:
-pip install -r task2_recipe_chatbot/requirements.txt
+pip install -r Task_1/requirements.txt
+pip install -r Task_2/requirements.txt
 
 ---
 
 ## 🧩 Task 1 – Name Matching System
 
 Run:
-python task1_name_matching/name_matcher.py
+python Task_1/name_match.py
 
 Sample Input:
-Geeta
+Suneetha
 
 Expected Output:
-Geeta - Score: 100
-Geetha - Score: 92
-Gita - Score: 88
+Best Match:
+Suneeta - Score: 93.33333333333333
+
+Other Matches:
+Seetha - Score: 85.71428571428572
+Sunitha - Score: 80.0
+Seeta - Score: 76.92307692307692
+Geetha - Score: 71.42857142857143
 
 ---
 
 ## 🤖 Task 2 – Local Recipe Chatbot
 
 Run server:
-uvicorn task2_recipe_chatbot.app:app --reload
+uvicorn Task_2.app:app --reload
 
 API URL:
 http://127.0.0.1:8000/chat
@@ -111,6 +118,3 @@ Invoke-RestMethod `
 - rapidfuzz
 
 ---
-
-## ✅ Submission Ready
-This project includes complete runnable code, documentation, setup steps, and sample outputs.
