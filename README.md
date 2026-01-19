@@ -1,102 +1,116 @@
 # AI Assignment – Name Matching System & Local Recipe Chatbot
 
-This project contains **two tasks** implemented in Python, fully runnable on a **standard Windows or Linux laptop** with minimal setup.
+This project contains two tasks implemented in Python.  
+Both tasks are fully runnable locally on a standard Windows or Linux laptop with clearly documented steps and no external setup beyond installing dependencies.
 
 ---
 
 ## 📌 Task Overview
 
-### ✅ Task 1: Matching Person Names
-Build a name-matching system that:
-- Takes a user-entered name
-- Finds the most similar names from a dataset
-- Displays similarity scores and ranked matches
+### Task 1: Matching Person Names
+- Accepts a name as input
+- Finds the most similar names from a predefined dataset
+- Displays similarity scores and ranked results
 
-### ✅ Task 2: Local LLM-style Recipe Chatbot
-Build a local chatbot system that:
+### Task 2: Local Recipe Chatbot
 - Accepts ingredients as input
 - Suggests a recipe based on ingredient matching
-- Runs locally using FastAPI
+- Exposes functionality via a local FastAPI server
 - Returns responses in JSON format
 
 ---
 
 ## 📁 Project Structure
+
 AI_Assignment/
 │
-├── Task_1/
-│ ├── name_match.py
-│ ├── names.py
-│ └── requirements.txt
+├── task1_name_matching/
+│   ├── name_matcher.py
+│   └── names.py
 │
-├── Task_2/
-│ ├── app.py
-│ ├── model.py
-│ ├── recipe_data.py
-│ └── requirements.txt
+├── task2_recipe_chatbot/
+│   ├── app.py
+│   ├── model.py
+│   ├── recipe_data.py
+│   └── requirements.txt
 │
 └── README.md
 
 ---
 
 ## 🖥️ System Requirements
-
-- Operating System: Windows or Linux
-- Python Version: **3.9 or higher**
-- Internet connection required only for installing dependencies
+- OS: Windows / Linux
+- Python: 3.9 or higher
+- Internet required only for installing dependencies
 
 ---
 
 ## ⚙️ Setup Instructions
 
-### 1️⃣ (Optional) Create Virtual Environment
-```bash
-python -m venv venv```
+(Optional) Create a virtual environment:
+python -m venv venv
 
-***Windows**
-venv\Scripts\activate
+Activate:
+Windows: venv\Scripts\activate
+Linux/macOS: source venv/bin/activate
 
-**Linux / macOS**
-source venv/bin/activate
+Install dependencies:
+pip install -r task2_recipe_chatbot/requirements.txt
 
-### 2️⃣ **Install Dependencies**
-pip install -r Task_1/requirements.txt
-pip install -r Task_2/requirements.txt
+---
 
-### 🧩 **Task 1 – Name Matching System**
-▶ **How to Run**
-python Task_1/name_match.py
+## 🧩 Task 1 – Name Matching System
 
-🧪 **Sample Input**
-Enter a name: Suneetha
+Run:
+python task1_name_matching/name_matcher.py
 
-✅ **Expected Output**
-Best Match:
-Suneeta - Score: 93.33333333333333
+Sample Input:
+Geeta
 
-Other Matches:
-Seetha - Score: 85.71428571428572
-Sunitha - Score: 80.0
-Seeta - Score: 76.92307692307692
-Geetha - Score: 71.42857142857143
+Expected Output:
+Geeta - Score: 100
+Geetha - Score: 92
+Gita - Score: 88
 
-🤖 **Task 2 – Local Recipe Chatbot (FastAPI)**
-▶ Start API Server
-uvicorn Task_2.app:app --reload
+---
 
-Server runs at:
-http://127.0.0.1:8000
+## 🤖 Task 2 – Local Recipe Chatbot
 
-▶ **API Endpoint**
-POST /chat
+Run server:
+uvicorn task2_recipe_chatbot.app:app --reload
 
-🧪 **Sample Request**
+API URL:
+http://127.0.0.1:8000/chat
+
+Sample Request:
 {
   "ingredients": ["egg", "onion"]
 }
 
-✅ **Expected Response**
+Expected Response:
 {
   "recipe": "Egg Onion Omelette",
   "steps": "Beat eggs, sauté onions, cook together."
 }
+
+---
+
+## 🧪 API Testing (Windows PowerShell)
+
+Invoke-RestMethod `
+  -Uri http://127.0.0.1:8000/chat `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{"ingredients":["egg","onion"]}'
+
+---
+
+## 📦 Dependencies
+- fastapi
+- uvicorn
+- rapidfuzz
+
+---
+
+## ✅ Submission Ready
+This project includes complete runnable code, documentation, setup steps, and sample outputs.
