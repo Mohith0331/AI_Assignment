@@ -51,19 +51,19 @@ AI_Assignment/
 
 ### 1️⃣ (Optional) Create Virtual Environment
 ```bash
-python -m venv venv
+python -m venv venv```
 
-**Windows**
+***Windows**
 venv\Scripts\activate
 
 **Linux / macOS**
 source venv/bin/activate
 
-2️⃣ **Install Dependencies**
+### 2️⃣ **Install Dependencies**
 pip install -r Task_1/requirements.txt
 pip install -r Task_2/requirements.txt
 
-🧩 **Task 1 – Name Matching System**
+### 🧩 **Task 1 – Name Matching System**
 ▶ **How to Run**
 python Task_1/name_match.py
 
